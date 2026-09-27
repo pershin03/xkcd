@@ -104,7 +104,7 @@ func HandleComics(onProgress func(current, max int)) ([]Comic, error) {
 }
 
 func SaveIndex(comics []Comic, path string) error {
-	data, err := json.Marshal(comics)
+	data, err := json.MarshalIndent(comics, " ", "     ")
 	if err != nil {
 		return fmt.Errorf("failed to marshal data")
 	}
